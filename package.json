@@ -1,0 +1,43 @@
+{
+  "name": "egg-rest",
+  "version": "0.0.1",
+  "description": "Restful API plugin for egg",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "egg-bin test",
+    "autod": "autod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggjs/egg-rest.git"
+  },
+  "keywords": [
+    "egg",
+    "rest",
+    "restful",
+    "plugin"
+  ],
+  "author": "shaoshuai0102 <shaoshuai0102@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eggjs/egg-rest/issues"
+  },
+  "homepage": "https://github.com/eggjs/egg-rest#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "autod": "^2.6.1",
+    "egg-bin": "^1.0.1",
+    "egg-ci": "^1.0.2",
+    "eslint": "^3.0.1",
+    "eslint-config-egg": "^3.1.0",
+    "should": "^9.0.2",
+    "supertest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "ci": {
+    "version": "4, 6"
+  }
+}
