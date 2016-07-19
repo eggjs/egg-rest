@@ -1,6 +1,6 @@
 {
   "name": "egg-rest",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Restful API plugin for egg",
   "main": "index.js",
   "scripts": {
