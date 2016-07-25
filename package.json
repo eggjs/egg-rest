@@ -9,12 +9,20 @@
   "scripts": {
     "lint": "eslint . --fix",
     "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "ci": "npm run lint && npm run cov",
     "autod": "autod"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eggjs/egg-rest.git"
   },
+  "files": [
+    "app",
+    "config",
+    "api.js",
+    "app.js"
+  ],
   "keywords": [
     "egg",
     "rest",
@@ -27,13 +35,19 @@
     "url": "https://github.com/eggjs/egg-rest/issues"
   },
   "homepage": "https://github.com/eggjs/egg-rest#readme",
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^2.2.0",
+    "utility": "^1.8.0"
+  },
   "devDependencies": {
     "autod": "^2.6.1",
+    "egg": "^0.0.6",
     "egg-bin": "^1.0.1",
     "egg-ci": "^1.0.2",
+    "egg-mock": "^0.0.3",
     "eslint": "^3.0.1",
     "eslint-config-egg": "^3.1.0",
+    "pedding": "^1.0.0",
     "should": "^9.0.2",
     "supertest": "^1.2.0"
   },
