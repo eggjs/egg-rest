@@ -40,16 +40,16 @@
     "utility": "^1.8.0"
   },
   "devDependencies": {
-    "autod": "^2.6.1",
+    "autod": "^2.7.0",
     "egg": "^0.0.6",
-    "egg-bin": "^1.0.1",
+    "egg-bin": "^1.2.0",
     "egg-ci": "^1.0.2",
     "egg-mock": "^0.0.3",
-    "eslint": "^3.0.1",
+    "eslint": "^3.2.2",
     "eslint-config-egg": "^3.1.0",
     "pedding": "^1.0.0",
-    "should": "^9.0.2",
-    "supertest": "^1.2.0"
+    "should": "^11.0.0",
+    "supertest": "^2.0.0"
   },
   "engines": {
     "node": ">= 4.0.0"
