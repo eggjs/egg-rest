@@ -635,7 +635,7 @@ HTTP/1.0 403 Forbidden
 
 Rest plugin provides a way of validating request params.
 
-For more details of validating rules, see [parameter](http://web.npm.alibaba-inc.com/package/parameter).
+For more details of validating rules, see [parameter](https://github.com/node-modules/parameter).
 
 ### `createRule` 和 `updateRule`
 
