@@ -1,14 +1,15 @@
 {
   "name": "egg-rest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Restful API plugin for egg",
   "eggPlugin": {
     "name": "rest"
   },
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --fix",
-    "test": "egg-bin test",
+    "lint": "eslint .",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
     "cov": "egg-bin cov",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
