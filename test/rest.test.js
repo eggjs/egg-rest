@@ -348,6 +348,20 @@ describe('test/rest.test.js', function() {
       .expect(200, done);
     });
 
+    it('should support two level deep nested resources', function(done) {
+      request(app.callback())
+      .get('/api/users/1/posts/2/replies/3')
+      .expect({
+        data: {
+          pid: '1',
+          id: '3',
+          cid: '2',
+          text: 'foo text',
+        },
+      })
+      .expect(200, done);
+    });
+
     describe('sites/index.js => GET /sites', function() {
       it('should auto add routing for sites/index.js', function(done) {
         request(app.callback())
@@ -375,9 +389,9 @@ describe('test/rest.test.js', function() {
       });
     });
 
-    it('should 404 when dir level beyond 2', function(done) {
+    it('should 404 when dir level beyond 3', function(done) {
       request(app.callback())
-      .get('/api/users/3/posts/1/replies')
+      .get('/api/users/3/posts/1/replies/2/answer')
       .expect({
         message: 'Not Found',
       })

@@ -40,12 +40,15 @@ function loadRestApis(app) {
       const filepath = path.join(dir, name);
       const stat = fs.statSync(filepath);
       if (stat.isDirectory()) {
-        // nesting is supported, for only one layer at most, `/api/parents/:parent_id/objects/:id`
+        // nesting is supported, for only two layers at most, `/api/parents/:parent_id/children/:child_id/objects/:id`
         if (level === 0) {
           registerDir(app, prefix + '/' + name + '/:parent_id', filepath, level + 1);
+        } else if (level === 1) {
+          registerDir(app, prefix + '/' + name + '/:child_id', filepath, level + 1 );
         } else {
           app.loggers.coreLogger.warn('[egg:rest] for directory "%s", the nesting is too deep(%d layer), one layer at most, which means `/api/parents/:parent_id/objects/:id`', filepath, level + 1);
         }
+
         continue;
       }
 

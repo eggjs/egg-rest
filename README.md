@@ -92,17 +92,21 @@ method     | url                                                    | file path 
 
 ### Nested Resources
 
-Nesting of one layer at most is supported.
+Nesting of two layer at most is supported.
 
 method     | url                                                                       | file path                         | controller name
 ---        | ---                                                                       | ---                               | ---
-**GET**    | `/doc/api/{parents}/:parent_id/{objects}?per_page={per_page}&page={page}` | `app/apis/{parents}/{objects}.js` | **index()**
-**GET**    | `/doc/api/{parents}/:parent_id/{objects}/:id`                             | `app/apis/{parents}/{objects}.js` | **show()**
-**POST**   | `/doc/api/{parents}/:parent_id/{objects}`                                 | `app/apis/{parents}/{objects}.js` | **create()**
-**PUT**    | `/doc/api/{parents}/:parent_id/{objects}/:id`                             | `app/apis/{parents}/{objects}.js` | **update()**
-**DELETE** | `/doc/api/{parents}/:parent_id/{objects}/:id[s]`                          | `app/apis/{parents}/{objects}.js` | **destroy()**
+**GET**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}?per_page={per_page}&page={page}` | `app/apis/{parents}/{objects}.js` | **index()**
+**GET**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id`                             | `app/apis/{parents}/{objects}.js` | **show()**
+**POST**   | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}`                                 | `app/apis/{parents}/{objects}.js` | **create()**
+**PUT**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id`                             | `app/apis/{parents}/{objects}.js` | **update()**
+**DELETE** | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id[s]`                          | `app/apis/{parents}/{objects}.js` | **destroy()**
 
-Example: `/doc/api/posts/111/replies/1` => `app/apis/posts/replies.js` => params: `{ parent_id: 111, id: 1 }`
+Example: `/api/users/3/posts/1/replies/2` => params: `{ parent_id: 3, child_id: 2, id: 1 }`. The idea is that you can can retrieve the ids from `this.params`,
+which you get values of `{ users: '3', posts: '1', replies: '2' }`. It matches the file path `/api/users/3/posts/1/replies/2`.
+
+**Note:** It does not support more than three level deep nesting. Example: `/api/users/3/posts/1/replies/2/answer` won't match file path 
+`apis/users/posts/replies/answer.js`. Currently, it can only retrieve maximum three query parameters.
 
 Controllers can be loaded from `index.js` in parent directory.
 
