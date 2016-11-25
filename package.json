@@ -33,6 +33,7 @@
   ],
   "dependencies": {
     "debug": "^2.3.3",
+    "restc": "^0.0.2",
     "utility": "^1.9.0"
   },
   "devDependencies": {
