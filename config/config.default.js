@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(antx) {
+module.exports = appInfo => {
   const exports = {};
 
   /**
@@ -15,7 +15,7 @@ module.exports = function(antx) {
 
   exports.rest = {
     urlprefix: '/api/',
-    production: antx.env === 'prod',
+    production: appInfo.env === 'prod',
     authRequest: null,
     // authRequest: function* (ctx) {
     //   // A truthy value must be returned when authentication succeeds.

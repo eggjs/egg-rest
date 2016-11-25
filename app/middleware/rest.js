@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(options) {
+module.exports = options => {
   return function* rest(next) {
     if (this.url.indexOf(options.urlprefix) === 0) {
       // Make sure all RESTful APIs always respond with json format

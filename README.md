@@ -29,7 +29,7 @@ Developing RESTful API with egg-rest is very simple. You may read [JSON API spec
 ## Install
 
 ```bash
-$ npm i egg-rest
+$ npm i egg-rest --save
 ```
 
 ## Usage
@@ -105,7 +105,7 @@ method     | url                                                                
 Example: `/api/users/3/posts/1/replies/2` => params: `{ parent_id: 3, child_id: 2, id: 1 }`. The idea is that you can can retrieve the ids from `this.params`,
 which you get values of `{ users: '3', posts: '1', replies: '2' }`. It matches the file path `/api/users/3/posts/1/replies/2`.
 
-**Note:** It does not support more than three level deep nesting. Example: `/api/users/3/posts/1/replies/2/answer` won't match file path 
+**Note:** It does not support more than three level deep nesting. Example: `/api/users/3/posts/1/replies/2/answer` won't match file path
 `apis/users/posts/replies/answer.js`. Currently, it can only retrieve maximum three query parameters.
 
 Controllers can be loaded from `index.js` in parent directory.
