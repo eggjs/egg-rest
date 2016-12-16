@@ -1,4 +1,9 @@
 
+1.3.0 / 2016-12-16
+==================
+
+  * feat: add delete resource return json if has body
+
 1.2.0 / 2016-11-25
 ==================
 
