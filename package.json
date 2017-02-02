@@ -10,8 +10,8 @@
     "autod": "autod",
     "lint": "eslint .",
     "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test -r intelli-espower-loader",
-    "cov": "egg-bin cov -r intelli-espower-loader",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
     "ci": "npm run lint && npm run cov"
   },
   "repository": {
@@ -32,28 +32,27 @@
     "plugin"
   ],
   "dependencies": {
-    "debug": "^2.3.3",
+    "debug": "^2.6.0",
     "utility": "^1.9.0"
   },
   "devDependencies": {
     "autod": "^2.7.1",
-    "egg": "^0.5.0",
-    "egg-bin": "^1.7.0",
+    "egg": "^0.9.0",
+    "egg-bin": "^2.0.2",
     "egg-ci": "^1.1.0",
-    "egg-mock": "^1.2.0",
-    "eslint": "^3.10.2",
+    "egg-mock": "^2.3.1",
+    "eslint": "^3.14.1",
     "eslint-config-egg": "^3.2.0",
-    "intelli-espower-loader": "^1.0.1",
     "pedding": "^1.1.0",
     "power-assert": "^1.4.2",
-    "supertest": "^2.0.1",
-    "webstorm-disable-index": "^1.0.11"
+    "supertest": "^3.0.0",
+    "webstorm-disable-index": "^1.1.2"
   },
   "ci": {
-    "version": "4, 6, 7"
+    "version": "6, 7"
   },
   "engines": {
-    "node": ">= 4.0.0"
+    "node": ">= 6.0.0"
   },
   "author": "shaoshuai0102 <shaoshuai0102@gmail.com>",
   "bugs": "https://github.com/eggjs/egg-rest/issues",
