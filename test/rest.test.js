@@ -12,9 +12,7 @@ describe('test/rest.test.js', () => {
     });
     return app.ready();
   });
-
   after(() => app.close());
-
   afterEach(mm.restore);
 
   describe('auto url routing', () => {
@@ -347,7 +345,10 @@ describe('test/rest.test.js', () => {
       .post('/api/users')
       .set('content-type', 'application/vnd.api+json')
       .send('{error')
-      .expect(400, { message: 'Problems parsing JSON' });
+      .expect(400)
+      .expect(res => {
+        assert(res.body.message === 'Problems parsing JSON');
+      });
     });
 
     it('should response 400 json data type error', () => {
