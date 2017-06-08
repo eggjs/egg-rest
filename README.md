@@ -37,7 +37,10 @@ $ npm i egg-rest --save
 Enable the rest plugin in `plugin.js`:
 
 ```js
-exports.rest = true;
+exports.rest = {
+  enable: true,
+  package: 'egg-rest',
+};
 ```
 
 Configure the rest plugin in `config/config.default.js`:
