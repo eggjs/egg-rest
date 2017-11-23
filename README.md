@@ -57,7 +57,7 @@ Example: Configure the rest plugin in `config/config.default.js`:
 exports.rest = {
   urlprefix: '/doc/api/', // Prefix of rest api url. Default to /api/
   authRequest: null,
-  // authRequest: function* (ctx) {
+  // authRequest: async ctx => {
   //   // A truthy value must be returned when authentication succeeds.
   //   // Otherwise the client will be responded with `401 Unauthorized`
   //   return accessToken;

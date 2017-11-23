@@ -46,3 +46,5 @@ exports.rest = {
     },
   },
 };
+
+exports.keys = 'keys';
