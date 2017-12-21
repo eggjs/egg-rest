@@ -45,7 +45,7 @@ exports.rest = {
 
 ## Configuration
 
-- `urlperfix`: Prefix of rest api url. Default to `/api/`
+- `urlprefix`: Prefix of rest api url. Default to `/api/`
 - `authRequest`: a function for getting some value of authentication
 - `authIgnores`: allow some request to ignore authentication
 - `errorResponse`: Error handling function
