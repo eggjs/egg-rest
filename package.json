@@ -1,6 +1,6 @@
 {
   "name": "egg-rest",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Restful API plugin for egg",
   "eggPlugin": {
     "name": "rest",
@@ -55,7 +55,7 @@
     "version": "8, 9"
   },
   "engines": {
-    "node": ">= 8.0.0"
+    "node": ">=8.0.0"
   },
   "author": "shaoshuai0102 <shaoshuai0102@gmail.com>",
   "bugs": "https://github.com/eggjs/egg-rest/issues",

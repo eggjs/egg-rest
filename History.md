@@ -1,4 +1,10 @@
 
+2.1.0 / 2018-06-21
+==================
+
+  * feat: prefer app/api rather than apis (#17)
+  * docs: fix typo at README (#15)
+
 2.0.0 / 2017-11-23
 ==================
 
