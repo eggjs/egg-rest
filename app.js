@@ -3,7 +3,7 @@
 const assert = require('assert');
 const loadApi = require('./lib/load_api');
 
-// load all js files in app/apis/ directory automatically
+// load all js files in app/api/ directory automatically
 module.exports = app => {
   // remove existed rest plugin configuration to prevent error configurations.
   const index = app.config.appMiddleware.indexOf('rest');

@@ -16,7 +16,7 @@ describe('test/rest.test.js', () => {
   afterEach(mm.restore);
 
   describe('auto url routing', () => {
-    it('should GET /api/{objects} => app/apis/{objects}.js:index()', () => {
+    it('should GET /api/{objects} => app/api/{objects}.js:index()', () => {
       return request(app.callback())
         .get('/api/users')
         .expect('Content-Type', 'application/json; charset=utf-8')
@@ -87,7 +87,7 @@ describe('test/rest.test.js', () => {
         .expect(200, { data: [] });
     });
 
-    it('should GET /api/{objects}/:id => app/apis/{objects}.js:show()', () => {
+    it('should GET /api/{objects}/:id => app/api/{objects}.js:show()', () => {
       return request(app.callback())
         .get('/api/users/101')
         .expect(200, {
@@ -172,7 +172,7 @@ describe('test/rest.test.js', () => {
         });
     });
 
-    it('should POST /api/{objects} => app/apis/{objects}.js:create()', () => {
+    it('should POST /api/{objects} => app/api/{objects}.js:create()', () => {
       return request(app.callback())
         .post('/api/users')
         .send({
@@ -234,7 +234,7 @@ describe('test/rest.test.js', () => {
         });
     });
 
-    it('should PUT /api/{objects}/3 => app/apis/{objects}.js:update() 200 server update', () => {
+    it('should PUT /api/{objects}/3 => app/api/{objects}.js:update() 200 server update', () => {
       return request(app.callback())
         .put('/api/users/3')
         .send({
@@ -249,7 +249,7 @@ describe('test/rest.test.js', () => {
         });
     });
 
-    it('should PUT /api/{objects}/3 => app/apis/{objects}.js:update() 204 server not update', () => {
+    it('should PUT /api/{objects}/3 => app/api/{objects}.js:update() 204 server not update', () => {
       return request(app.callback())
         .put('/api/users/4')
         .send({
@@ -258,7 +258,7 @@ describe('test/rest.test.js', () => {
         .expect(204);
     });
 
-    it('should DELETE /api/{objects}/3 => app/apis/{objects}.js:delete()', () => {
+    it('should DELETE /api/{objects}/3 => app/api/{objects}.js:delete()', () => {
       return request(app.callback())
         .delete('/api/users/3')
         .expect(204);
@@ -494,6 +494,29 @@ describe('test/rest.test.js', () => {
       return request(app.callback())
         .get('/api/typescripts')
         .expect(200, { success: true });
+    });
+  });
+
+  describe('test apis folder compatible', () => {
+    let app;
+    before(() => {
+      app = mm.app({
+        baseDir: 'rest-with-apis',
+      });
+      return app.ready();
+    });
+    after(() => app.close());
+
+    it('should GET /api/{objects} => app/api/{objects}.js:index()', () => {
+      return request(app.callback())
+        .get('/api/users')
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(200, {
+          data: [
+            { id: 1, name: 'shaoshuai0102', age: 18 },
+            { id: 2, name: 'name2', age: 30 },
+          ],
+        });
     });
   });
 });

@@ -76,7 +76,7 @@ exports.rest = {
 ```
 
 
-Controllers in files matching `${baseDir}/app/apis/**.js` will be loaded automatically according to routing rules.
+Controllers in files matching `${baseDir}/app/api/**.js` will be loaded automatically according to routing rules.
 
 __Caution__
 
@@ -96,11 +96,11 @@ Follow the naming conventions of rails:
 
 method     | url                                                    | file path               | controller name
 ---        | ---                                                    | ---                     | ---
-**GET**    | `/doc/api/{objects}[?per_page={per_page}&page={page}]` | `app/apis/{objects}.js` | **index()**
-**GET**    | `/doc/api/{objects}/:id`                               | `app/apis/{objects}.js` | **show()**
-**POST**   | `/doc/api/{objects}`                                   | `app/apis/{objects}.js` | **create()**
-**PUT**    | `/doc/api/{objects}/:id`                               | `app/apis/{objects}.js` | **update()**
-**DELETE** | `/doc/api/{objects}/:id[s]`                            | `app/apis/{objects}.js` | **destroy()**
+**GET**    | `/doc/api/{objects}[?per_page={per_page}&page={page}]` | `app/api/{objects}.js` | **index()**
+**GET**    | `/doc/api/{objects}/:id`                               | `app/api/{objects}.js` | **show()**
+**POST**   | `/doc/api/{objects}`                                   | `app/api/{objects}.js` | **create()**
+**PUT**    | `/doc/api/{objects}/:id`                               | `app/api/{objects}.js` | **update()**
+**DELETE** | `/doc/api/{objects}/:id[s]`                            | `app/api/{objects}.js` | **destroy()**
 
 ### Nested Resources
 
@@ -108,21 +108,21 @@ Nesting of two layer at most is supported.
 
 method     | url                                                                       | file path                         | controller name
 ---        | ---                                                                       | ---                               | ---
-**GET**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}?per_page={per_page}&page={page}` | `app/apis/{parents}/{objects}.js` | **index()**
-**GET**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id`                             | `app/apis/{parents}/{objects}.js` | **show()**
-**POST**   | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}`                                 | `app/apis/{parents}/{objects}.js` | **create()**
-**PUT**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id`                             | `app/apis/{parents}/{objects}.js` | **update()**
-**DELETE** | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id[s]`                          | `app/apis/{parents}/{objects}.js` | **destroy()**
+**GET**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}?per_page={per_page}&page={page}` | `app/api/{parents}/{objects}.js` | **index()**
+**GET**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id`                             | `app/api/{parents}/{objects}.js` | **show()**
+**POST**   | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}`                                 | `app/api/{parents}/{objects}.js` | **create()**
+**PUT**    | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id`                             | `app/api/{parents}/{objects}.js` | **update()**
+**DELETE** | `/doc/api/{parents}/:parent_id/{children}/:child_id/{objects}/:id[s]`                          | `app/api/{parents}/{objects}.js` | **destroy()**
 
 Example: `/api/users/3/posts/1/replies/2` => params: `{ parent_id: 3, child_id: 2, id: 1 }`. The idea is that you can can retrieve the ids from `this.params`,
 which you get values of `{ users: '3', posts: '1', replies: '2' }`. It matches the file path `/api/users/3/posts/1/replies/2`.
 
 **Note:** It does not support more than three level deep nesting. Example: `/api/users/3/posts/1/replies/2/answer` won't match file path
-`apis/users/posts/replies/answer.js`. Currently, it can only retrieve maximum three query parameters.
+`api/users/posts/replies/answer.js`. Currently, it can only retrieve maximum three query parameters.
 
 Controllers can be loaded from `index.js` in parent directory.
 
-Example: `/doc/api/{parents}` => `app/apis/{parents}/index.js`
+Example: `/doc/api/{parents}` => `app/api/{parents}/index.js`
 
 ---
 
@@ -222,7 +222,7 @@ Paging params must be accessed by `this.params.page` and `this.params.per_page`.
 And both of them must be numbers.
 
 ```js
-// app/apis/user.js
+// app/api/user.js
 // routing: GET /doc/api/users
 exports.index = function* (next) {
   // coding as a common controller
@@ -278,7 +278,7 @@ Accept: application/json
 Controller `exports.show` will be loaded automatically.
 
 ```js
-// app/apis/user.js
+// app/api/user.js
 // routing: GET /doc/api/users/:id
 exports.show = function* (next) {
   // coding as a common controller
@@ -327,7 +327,7 @@ Controller `exports.show` will be loaded automatically.
 Multiple id can be accessed with `this.params.ids` as an array, if you want to support multiple id.
 
 ```js
-// app/apis/user.js
+// app/api/user.js
 // routing: GET /doc/api/users/:ids
 exports.show = function* (next) {
   // coding as a common controller
@@ -381,7 +381,7 @@ Accept: application/json
 Controller `exports.create` will be loaded automatically.
 
 ```js
-// app/apis/user.js
+// app/api/user.js
 // Routing: POST /doc/api/users
 exports.create = function* (next) {
   var newUser = this.params.data;
@@ -432,7 +432,7 @@ Accept: application/json
 Controller `exports.update` is loaded automatically.
 
 ```js
-// app/apis/user.js
+// app/api/user.js
 // Routing: PUT /doc/api/users/:id
 exports.update = function* (next) {
   var user = this.params.data;
@@ -495,7 +495,7 @@ Controller `exports.destroy` will be loaded automatically.
 Multiple id can be accessed with `this.params.ids` as an array, if you want to support multiple id.
 
 ```js
-// app/apis/user.js
+// app/api/user.js
 // Routing: DELETE /doc/api/users/:id
 exports.destroy = function* (next) {
   yield userService.update(this.params.id);
