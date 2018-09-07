@@ -31,7 +31,7 @@ exports.show = function* () {
     const users = [];
     this.params.ids.forEach(function(id) {
       users.push({
-        id,
+        id: Number(id),
         name: 'user_' + id,
       });
     });
