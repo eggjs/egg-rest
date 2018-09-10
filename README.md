@@ -653,7 +653,7 @@ Rest plugin provides a way of validating request params.
 
 For more details of validating rules, see [parameter](https://github.com/node-modules/parameter).
 
-### `createRule` 和 `updateRule`
+### `createRule` and `updateRule`
 
 ```js
 // Specify validation rules of create request
