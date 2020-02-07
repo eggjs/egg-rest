@@ -532,7 +532,7 @@ An error object is a special resource, with additional information about problem
 - `403 Forbidden` should be used when the request is successfully authenticiated (see 401), but the action was forbidden.
 - `406 Not Acceptable` should be used when the requested format is not available (for instance, when requesting an XML resource from a JSON only server).
 - `410 Gone` Should be returned when the requested resource is permenantely deleted and will never be available again.
-- `422 Unprocesable entity` Could be used when there was a validation error while creating an object.
+- `422 Unprocessable entity` Could be used when there was a validation error while creating an object.
 
 ### Server error codes
 
